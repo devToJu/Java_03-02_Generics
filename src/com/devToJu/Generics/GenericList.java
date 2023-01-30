@@ -1,19 +1,20 @@
 package com.devToJu.Generics;
 
-public class GenericList {
-    private final Object[] list;
+public class GenericList<T> {
+    private final T[] list;
 
     private int count;
 
+    @SuppressWarnings("unchecked")
     public GenericList(int itemCount) {
-        this.list = new Object[itemCount];
+        this.list = (T[]) new Object[itemCount];
     }
 
     public int getCount() {
         return count;
     }
 
-    public boolean add(Object item) {
+    public boolean add(T item) {
         if (count >= list.length) {
             return false;
         }
@@ -22,7 +23,7 @@ public class GenericList {
         return true;
     }
 
-    public Object get(int index){
+    public T get(int index){
         if(index < 0 || index > count -1) {
             throw new IndexOutOfBoundsException("Invalid index " + index);
         }
