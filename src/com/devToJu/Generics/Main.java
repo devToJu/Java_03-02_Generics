@@ -2,20 +2,19 @@ package com.devToJu.Generics;
 
 public class Main {
     public static void main(String[] args) {
-        var integerGenericList = new GenericList<Integer>(3);
-        System.out.println(integerGenericList.add(1));
-        System.out.println(integerGenericList.add(2));
-        System.out.println(integerGenericList.add(3));
-        System.out.println(integerGenericList.add(4));
+        var numbers = new GenericList<Number>(5);
+        numbers.add(1);
+        numbers.add(33.3f);
 
-        var stringGenericList = new GenericList<String>(3);
-        stringGenericList.add("Much better...");
-        stringGenericList.add("... only defined types an subclasses allowed");
-        stringGenericList.add("... String is immutable -> only Strings allowed -> no type checking needed");
+        var users = new GenericList<User>(3);
+        users.add(new User("schnuffy23", "bad_decision"));
+        users.add(new User("test0815", "password1234"));
 
-        for (int i = 0; i < stringGenericList.getCount(); i++) {
-            String text = stringGenericList.get(i).toUpperCase();
-            System.out.println(text);
-        }
+        System.out.println(users.get(0).getUsername());
+        System.out.println(users.get(0).getPassword());
+
+        var admins = new GenericList<Admin>(1);
+        admins.add(new Admin("admin1", "admin1"));
+        admins.get(0).foo();
     }
 }
