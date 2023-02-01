@@ -5,6 +5,12 @@ public class Main {
         System.out.println("The user who ist online the most is " + getUserWithMaxOnlineTime());
         System.out.println("The biggest value is " + getMaxValue());
         System.out.println("String comparing returns: " + getMaxString());
+
+        System.out.println("------------------------------------------------------");
+
+        print("String Key", "String value");
+        print(1, "String value");
+        print(2, new User("noname", "1234"));
     }
 
     private static User getUserWithMaxOnlineTime() {
@@ -30,5 +36,9 @@ public class Main {
 
     private static <T extends Comparable> T max(T first, T second) {
         return first.compareTo(second) >= 0 ? first : second;
+    }
+
+    private static <K, V> void print(K key, V value) {
+        System.out.println("key: " + key + " | value: " + value);
     }
 }
