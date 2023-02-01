@@ -2,15 +2,31 @@ package com.devToJu.Generics;
 
 public class Main {
     public static void main(String[] args) {
-        var users = new GenericList<>(3);
-        users.add(new User("schnuffy23", "bad_decision"));
-        users.add(new User("test0815", "password1234"));
+        System.out.println("The user who ist online the most is " + getUserWithMaxOnlineTime());
+        System.out.println("The biggest value is " + getMaxValue());
+        System.out.println("String comparing returns: " + getMaxString());
+    }
 
-        System.out.println(users.get(0).getUsername());
-        System.out.println(users.get(0).getPassword());
+    private static User getUserWithMaxOnlineTime() {
+        var userA = new User("schnuffy23", "bad_decision");
+        var userB = new User("test0815", "password1234");
 
-        var admins = new GenericList<Admin>(1);
-        admins.add(new Admin("admin1", "admin1"));
-        admins.get(0).foo();
+        return userA.getHoursOnline() > userB.getHoursOnline()
+                ? userA
+                : userB;
+    }
+
+    private static Double getMaxValue() {
+        var a = Double.valueOf(Math.random() * 10.4);
+        var b = Double.valueOf(Math.random() * 13.7);
+
+        return a > b ? a : b;
+    }
+
+    private static String getMaxString() {
+        var textA = "Hello? Hello!";
+        var textB = "What's going on?";
+
+        return textA.compareTo(textB) > 0 ? textA : textB;
     }
 }

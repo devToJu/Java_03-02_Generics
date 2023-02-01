@@ -3,10 +3,12 @@ package com.devToJu.Generics;
 public class User {
     private final String username;
     private final String password;
+    private double hoursOnline;
 
     public User(String username, String password) {
         this.username = username;
         this.password = password;
+        this.hoursOnline = Math.random() * 18;
     }
 
     public String getUsername() {
@@ -15,5 +17,14 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+
+    public double getHoursOnline() {
+        return hoursOnline;
+    }
+
+    @Override
+    public String toString() {
+        return "User " + username;
     }
 }
