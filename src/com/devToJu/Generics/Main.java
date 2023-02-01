@@ -12,7 +12,7 @@ public class Main {
         admins.add(new Admin("y", "2"));
         printUsers(admins);
 
-        // Does compile -> OK: Only Users should be in the list
+        // Doesn't compile -> OK: Only Users should be in the list
         // printUsers(new UpToTenElementsOfSameType<Integer>());
 
         var mixedList = new UpToTenElementsOfSameType<User>();
@@ -28,11 +28,10 @@ public class Main {
     }
 
     private static UpToTenElementsOfSameType<User> addUser(
-            UpToTenElementsOfSameType<? extends User> userlist,
+            UpToTenElementsOfSameType<? super User> userlist,
             User userToAdd) {
         if (userlist.getCount() < 10) {
-            // Doesn't compile -> userToAdd isn't a capture of ?
-            // userlist.add(userToAdd);
+            userlist.add(userToAdd);
         }
 
         return (UpToTenElementsOfSameType<User>) userlist;
