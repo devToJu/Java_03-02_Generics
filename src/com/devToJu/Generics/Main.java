@@ -14,11 +14,27 @@ public class Main {
 
         // Does compile -> OK: Only Users should be in the list
         // printUsers(new UpToTenElementsOfSameType<Integer>());
+
+        var mixedList = new UpToTenElementsOfSameType<User>();
+        mixedList = addUser(mixedList, new User("User", ""));
+        mixedList = addUser(mixedList, new Admin("Admin", ""));
+        printUsers(mixedList);
     }
 
     private static void printUsers(UpToTenElementsOfSameType<? extends User> tenItems) {
         for (int i = 0; i < tenItems.getCount(); i++) {
             System.out.println(tenItems.get(i));
         }
+    }
+
+    private static UpToTenElementsOfSameType<User> addUser(
+            UpToTenElementsOfSameType<? extends User> userlist,
+            User userToAdd) {
+        if (userlist.getCount() < 10) {
+            // Doesn't compile -> userToAdd isn't a capture of ?
+            // userlist.add(userToAdd);
+        }
+
+        return (UpToTenElementsOfSameType<User>) userlist;
     }
 }
