@@ -11,20 +11,24 @@ public class Main {
         var userA = new User("schnuffy23", "bad_decision");
         var userB = new User("test0815", "password1234");
 
-        return userA.compareTo(userB) > 0 ? userA : userB;
+        return max(userA, userB);
     }
 
     private static Double getMaxValue() {
         var a = Double.valueOf(Math.random() * 10.4);
         var b = Double.valueOf(Math.random() * 13.7);
 
-        return a > b ? a : b;
+        return max(a, b);
     }
 
     private static String getMaxString() {
         var textA = "Hello? Hello!";
         var textB = "What's going on?";
 
-        return textA.compareTo(textB) > 0 ? textA : textB;
+        return max(textA, textB);
+    }
+
+    private static <T extends Comparable> T max(T first, T second) {
+        return first.compareTo(second) >= 0 ? first : second;
     }
 }

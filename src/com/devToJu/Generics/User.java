@@ -30,12 +30,7 @@ public class User implements Comparable<User>{
 
     @Override
     public int compareTo(User other) {
-        if (getHoursOnline() > other.getHoursOnline())
-            return 1;
-
-        if (getHoursOnline() < other.getHoursOnline())
-            return -1;
-
-        return 0;
+        var result = this.getHoursOnline() - other.getHoursOnline();
+        return Double.compare(result, 0d);
     }
 }
