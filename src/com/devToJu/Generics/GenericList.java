@@ -1,13 +1,13 @@
 package com.devToJu.Generics;
 
-public class GenericList<T> {
+public class GenericList<T extends User> {
     private final T[] list;
 
     private int count;
 
     @SuppressWarnings("unchecked")
     public GenericList(int itemCount) {
-        this.list = (T[]) new Object[itemCount];
+        this.list = (T[]) new User[itemCount];
     }
 
     public int getCount() {
