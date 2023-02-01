@@ -10,14 +10,13 @@ public class Main {
         var admins = new UpToTenElementsOfSameType<Admin>();
         admins.add(new Admin("x", "1"));
         admins.add(new Admin("y", "2"));
-        // Doesn't compile -> NOT OK: Admin is-a User (it's a Subclass)
-        // printUsers(admins);
+        printUsers(admins);
 
-        // Doesn't compile -> OK: Integer isn't a User
-        // printUsers(new UpToTenElementsOfSameType<Integer>());
+        // Does compile -> NOT OK: Only Users should be in the list
+        printUsers(new UpToTenElementsOfSameType<Integer>());
     }
 
-    private static void printUsers(UpToTenElementsOfSameType<User> tenItems) {
+    private static void printUsers(UpToTenElementsOfSameType<?> tenItems) {
         for (int i = 0; i < tenItems.getCount(); i++) {
             System.out.println(tenItems.get(i));
         }
