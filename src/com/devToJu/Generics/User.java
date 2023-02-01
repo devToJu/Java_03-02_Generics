@@ -1,6 +1,6 @@
 package com.devToJu.Generics;
 
-public class User {
+public class User implements Comparable<User>{
     private final String username;
     private final String password;
     private double hoursOnline;
@@ -26,5 +26,16 @@ public class User {
     @Override
     public String toString() {
         return "User " + username;
+    }
+
+    @Override
+    public int compareTo(User other) {
+        if (getHoursOnline() > other.getHoursOnline())
+            return 1;
+
+        if (getHoursOnline() < other.getHoursOnline())
+            return -1;
+
+        return 0;
     }
 }

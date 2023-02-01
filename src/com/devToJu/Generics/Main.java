@@ -11,9 +11,7 @@ public class Main {
         var userA = new User("schnuffy23", "bad_decision");
         var userB = new User("test0815", "password1234");
 
-        return userA.getHoursOnline() > userB.getHoursOnline()
-                ? userA
-                : userB;
+        return userA.compareTo(userB) > 0 ? userA : userB;
     }
 
     private static Double getMaxValue() {
