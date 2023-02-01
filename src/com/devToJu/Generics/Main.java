@@ -41,4 +41,8 @@ public class Main {
     private static <K, V> void print(K key, V value) {
         System.out.println("key: " + key + " | value: " + value);
     }
+
+    private static void print(KeyValuePair keyValuePair) {
+        print(keyValuePair.getKey(), keyValuePair.getValue());
+    }
 }
