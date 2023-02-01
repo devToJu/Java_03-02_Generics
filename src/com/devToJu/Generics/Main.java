@@ -11,6 +11,10 @@ public class Main {
         print("String Key", "String value");
         print(1, "String value");
         print(2, new User("noname", "1234"));
+
+        System.out.println("------------------------------------------------------");
+
+        print(new KeyValuePair<>(33, "Text..."));
     }
 
     private static User getUserWithMaxOnlineTime() {
@@ -34,7 +38,7 @@ public class Main {
         return max(textA, textB);
     }
 
-    private static <T extends Comparable> T max(T first, T second) {
+    private static <T extends Comparable<T>> T max(T first, T second) {
         return first.compareTo(second) >= 0 ? first : second;
     }
 
@@ -42,7 +46,7 @@ public class Main {
         System.out.println("key: " + key + " | value: " + value);
     }
 
-    private static void print(KeyValuePair keyValuePair) {
+    private static <K, V> void print(KeyValuePair<K, V> keyValuePair) {
         print(keyValuePair.getKey(), keyValuePair.getValue());
     }
 }
